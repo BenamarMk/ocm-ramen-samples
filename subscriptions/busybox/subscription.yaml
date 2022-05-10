@@ -3,7 +3,8 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
   annotations:
-    apps.open-cluster-management.io/github-branch: main
+    apps.open-cluster-management.io/reconcile-option: mergeAndOwn
+    apps.open-cluster-management.io/github-branch: scale-up-pods-and-pvcs-to-10-each
     apps.open-cluster-management.io/github-path: busybox
   labels:
     app: busybox-sample
