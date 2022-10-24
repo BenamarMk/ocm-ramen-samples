@@ -2,16 +2,17 @@
 apiVersion: ramendr.openshift.io/v1alpha1
 kind: DRPlacementControl
 metadata:
-  name: busybox-drpc
   labels:
     app: busybox-sample
+  name: busybox-drpc
 spec:
-  preferredCluster: "cluster1"
   drPolicyRef:
-    name: dr-policy
+    name: odr-policy-east-west-rpo-5m
   placementRef:
     kind: PlacementRule
     name: busybox-placement
+  preferredCluster: prsurve-vm-d
+  failoverCluster: vmware-dccp-one
   pvcSelector:
     matchLabels:
       appname: busybox

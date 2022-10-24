@@ -6,8 +6,9 @@ metadata:
   labels:
     appname: busybox
 spec:
-  accessModes: [ "ReadWriteOnce" ]
-  storageClassName: "rook-ceph-block"
+  accessModes:
+  - ReadWriteMany
+  storageClassName: ocs-storagecluster-cephfs
   resources:
     requests:
       storage: 1Gi

@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    appname: alpine-sshd
+  name: alpine-sshd
+spec:
+  selector:
+    matchLabels:
+      workload: alpine-sshd
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        workload: alpine-sshd
+    spec:
+      containers:
+      - image: sickp/alpine-sshd:latest
+        imagePullPolicy: IfNotPresent
+        name: alpine-sshd
+        securityContext:
+          capabilities:
+            add:
+            - AUDIT_WRITE
+            - SYS_CHROOT
+          runAsUser: 0
+      serviceAccount: volsync-src-busybox-pvc
+      serviceAccountName: volsync-src-busybox-pvc

@@ -1,21 +1,35 @@
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: busybox
   labels:
     appname: busybox
+  name: busybox
 spec:
-  containers:
-    - name: busybox
-      image: busybox
-      imagePullPolicy: IfNotPresent
-      command: ['sh', '-c', 'while true; do echo $(date) | tee -a /mnt/test/outfile; sync; sleep 10; done']
-      volumeMounts:
-        - name: mypvc
-          mountPath: /mnt/test
-  volumes:
-    - name: mypvc
-      persistentVolumeClaim:
-        claimName: busybox-pvc
-        readOnly: false
+  selector:
+    matchLabels:
+      workload: busybox
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        workload: busybox
+    spec:
+      containers:
+      - command:
+        - sh
+        - -c
+        - while true; do echo $(date) | tee -a /mnt/test/outfile; sync; cd /mnt/test/; touch bspl{0001..2000}.tmp; sleep 31560000;
+          done
+        image: quay.io/vcppds7878/busybox:latest
+        imagePullPolicy: IfNotPresent
+        name: busybox
+        volumeMounts:
+        - mountPath: /mnt/test
+          name: mypvc
+      volumes:
+      - name: mypvc
+        persistentVolumeClaim:
+          claimName: busybox-pvc
+          readOnly: false
