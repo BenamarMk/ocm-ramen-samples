@@ -2,4 +2,3 @@
 resources:
 - busybox-pvc.yaml
 - busybox-pod.yaml
-- alpine-sshd-pod.yaml

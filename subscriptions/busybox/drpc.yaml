@@ -4,15 +4,15 @@ kind: DRPlacementControl
 metadata:
   labels:
     app: busybox-sample
-  name: busybox-drpc
+  name: drpc-for-volsync-test
 spec:
   drPolicyRef:
-    name: odr-policy-east-west-rpo-5m
+    name: ocp4perf1-ocp4perf2-2m
   placementRef:
     kind: PlacementRule
     name: busybox-placement
-  preferredCluster: prsurve-vm-d
-  failoverCluster: vmware-dccp-one
+  preferredCluster: ocp4perf1
+  failoverCluster: ocp4perf2
   pvcSelector:
     matchLabels:
       appname: busybox
