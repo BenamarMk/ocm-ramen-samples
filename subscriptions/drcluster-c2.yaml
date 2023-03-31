@@ -2,6 +2,7 @@
 apiVersion: ramendr.openshift.io/v1alpha1
 kind: DRCluster
 metadata:
-  name: hub
+  name: c2
 spec:
-  s3ProfileName: minio-on-hub
+  s3ProfileName: minio-on-c2
+  region: us-west-1

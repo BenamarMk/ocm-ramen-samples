@@ -1,0 +1,92 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: ramen-system/ramen-hub-serving-cert
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{"cert-manager.io/inject-ca-from":"ramen-system/ramen-hub-serving-cert"},"name":"ramen-hub-validating-webhook-configuration"},"webhooks":[{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"ramen-hub-webhook-service","namespace":"ramen-system","path":"/validate-ramendr-openshift-io-v1alpha1-drcluster"}},"failurePolicy":"Fail","name":"vdrcluster.kb.io","rules":[{"apiGroups":["ramendr.openshift.io"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE"],"resources":["drclusters"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"ramen-hub-webhook-service","namespace":"ramen-system","path":"/validate-ramendr-openshift-io-v1alpha1-drplacementcontrol"}},"failurePolicy":"Fail","name":"vdrplacementcontrol.kb.io","rules":[{"apiGroups":["ramendr.openshift.io"],"apiVersions":["v1alpha1"],"operations":["UPDATE"],"resources":["drplacementcontrols"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"ramen-hub-webhook-service","namespace":"ramen-system","path":"/validate-ramendr-openshift-io-v1alpha1-drpolicy"}},"failurePolicy":"Fail","name":"vdrpolicy.kb.io","rules":[{"apiGroups":["ramendr.openshift.io"],"apiVersions":["v1alpha1"],"operations":["UPDATE"],"resources":["drpolicies"]}],"sideEffects":"None"}]}
+  creationTimestamp: "2023-03-27T17:41:06Z"
+  generation: 2
+  name: ramen-hub-validating-webhook-configuration
+  resourceVersion: "15753"
+  uid: 02e8bc23-0009-467e-858e-fcd02d17fb79
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lSQUl0YU1YT2x5bE5MTTQ0b245WkVRWnN3RFFZSktvWklodmNOQVFFTEJRQXcKQURBZUZ3MHlNekF6TWpjeE56UXhNRGRhRncweU16QTJNalV4TnpReE1EZGFNQUF3Z2dFaU1BMEdDU3FHU0liMwpEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURuSlEvYTVjSGhBWThGNFI2ZDZ6M1BXdWpBUk9pdy9CdW5oc2hBCm1uQ3J5VVRhVjIwbks1dWhQS3krb200UkRyb1Nac25heVIwVEpwNG54aVgxUmpBdngxSFZFbDNONExsdExnMTEKSzZpL1cxc05rRG1kb3d6Mk8yMURwVG9rL1k2NTQwZkJYNWdKUzNuTDJCU205U1VhbDU5K2NudUdQNnErTVd1Tgo3UndXaFpkVDlkQWgybVdYQ3ZjbDNIVjJTM0l3RlNkc25DU2hkRmV2RUZydWo2c1BzN0s0SjRUbXRXci95ek9NCmQrTUlqakFTcldCYXdmS28ySWZqY1pXa3d3ZWx5MElrUWlaejJsZU9XMHV0SHRQK2hsamRNSHZ3WEcxYTZEa0kKWlFFREtMN2ZXTEFxa0NSWFNnaVpSaHVvTVJBOS84RTFpdFppb1V0bS9XaW5UZzVOQWdNQkFBR2pnWlV3Z1pJdwpEZ1lEVlIwUEFRSC9CQVFEQWdXZ01Bd0dBMVVkRXdFQi93UUNNQUF3Y2dZRFZSMFJBUUgvQkdnd1pvSXFjbUZ0ClpXNHRhSFZpTFhkbFltaHZiMnN0YzJWeWRtbGpaUzV5WVcxbGJpMXplWE4wWlcwdWMzWmpnamh5WVcxbGJpMW8KZFdJdGQyVmlhRzl2YXkxelpYSjJhV05sTG5KaGJXVnVMWE41YzNSbGJTNXpkbU11WTJ4MWMzUmxjaTVzYjJOaApiREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBWExVN2FsWTNMeHU2Ri9xQ09uRWxDaXQraXZXUE92VjBITHNJCjN3SHlST3BVYkVla1JmS0xqNU9EdjA5YTJkeUJxNHQ2NjNKNnBDTjMvVHNEMEl0Q1JFOE1VdW95dzlmcVhEcG4KWlVmazF1ZjlLNi9ubHE5c2wyWGduSE9Lb2JlUzBOK3E0YjZxUllJMzB1czdGSzcxTUwwZGU2ZTl1SU5NTGVPTgovdHN4bnE5VjNZZXVjSlRNdE9TcFRqREhNUUdzMDlQaElROHpoMHZuU3hpSjZlS1MwRVJpMG1JVHc2THduNHo2ClBMQmI0Uk56UWRSM3Voa1U0elBIS05lUVMxakxmb1o1UjNnN1VxZjc0MTdKZHlOU2dSTWZTYWpaa1YyYzgyaXIKc1dOL3N5TXhsSnkxOGdkemUrNHozOVdRT3BZWnRrdFR1REdnZm5BZnVrdFYrSHFQK3c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: ramen-hub-webhook-service
+      namespace: ramen-system
+      path: /validate-ramendr-openshift-io-v1alpha1-drcluster
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: vdrcluster.kb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - ramendr.openshift.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - drclusters
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lSQUl0YU1YT2x5bE5MTTQ0b245WkVRWnN3RFFZSktvWklodmNOQVFFTEJRQXcKQURBZUZ3MHlNekF6TWpjeE56UXhNRGRhRncweU16QTJNalV4TnpReE1EZGFNQUF3Z2dFaU1BMEdDU3FHU0liMwpEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURuSlEvYTVjSGhBWThGNFI2ZDZ6M1BXdWpBUk9pdy9CdW5oc2hBCm1uQ3J5VVRhVjIwbks1dWhQS3krb200UkRyb1Nac25heVIwVEpwNG54aVgxUmpBdngxSFZFbDNONExsdExnMTEKSzZpL1cxc05rRG1kb3d6Mk8yMURwVG9rL1k2NTQwZkJYNWdKUzNuTDJCU205U1VhbDU5K2NudUdQNnErTVd1Tgo3UndXaFpkVDlkQWgybVdYQ3ZjbDNIVjJTM0l3RlNkc25DU2hkRmV2RUZydWo2c1BzN0s0SjRUbXRXci95ek9NCmQrTUlqakFTcldCYXdmS28ySWZqY1pXa3d3ZWx5MElrUWlaejJsZU9XMHV0SHRQK2hsamRNSHZ3WEcxYTZEa0kKWlFFREtMN2ZXTEFxa0NSWFNnaVpSaHVvTVJBOS84RTFpdFppb1V0bS9XaW5UZzVOQWdNQkFBR2pnWlV3Z1pJdwpEZ1lEVlIwUEFRSC9CQVFEQWdXZ01Bd0dBMVVkRXdFQi93UUNNQUF3Y2dZRFZSMFJBUUgvQkdnd1pvSXFjbUZ0ClpXNHRhSFZpTFhkbFltaHZiMnN0YzJWeWRtbGpaUzV5WVcxbGJpMXplWE4wWlcwdWMzWmpnamh5WVcxbGJpMW8KZFdJdGQyVmlhRzl2YXkxelpYSjJhV05sTG5KaGJXVnVMWE41YzNSbGJTNXpkbU11WTJ4MWMzUmxjaTVzYjJOaApiREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBWExVN2FsWTNMeHU2Ri9xQ09uRWxDaXQraXZXUE92VjBITHNJCjN3SHlST3BVYkVla1JmS0xqNU9EdjA5YTJkeUJxNHQ2NjNKNnBDTjMvVHNEMEl0Q1JFOE1VdW95dzlmcVhEcG4KWlVmazF1ZjlLNi9ubHE5c2wyWGduSE9Lb2JlUzBOK3E0YjZxUllJMzB1czdGSzcxTUwwZGU2ZTl1SU5NTGVPTgovdHN4bnE5VjNZZXVjSlRNdE9TcFRqREhNUUdzMDlQaElROHpoMHZuU3hpSjZlS1MwRVJpMG1JVHc2THduNHo2ClBMQmI0Uk56UWRSM3Voa1U0elBIS05lUVMxakxmb1o1UjNnN1VxZjc0MTdKZHlOU2dSTWZTYWpaa1YyYzgyaXIKc1dOL3N5TXhsSnkxOGdkemUrNHozOVdRT3BZWnRrdFR1REdnZm5BZnVrdFYrSHFQK3c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: ramen-hub-webhook-service
+      namespace: ramen-system
+      path: /validate-ramendr-openshift-io-v1alpha1-drplacementcontrol
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: vdrplacementcontrol.kb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - ramendr.openshift.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - UPDATE
+    resources:
+    - drplacementcontrols
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURJVENDQWdtZ0F3SUJBZ0lSQUl0YU1YT2x5bE5MTTQ0b245WkVRWnN3RFFZSktvWklodmNOQVFFTEJRQXcKQURBZUZ3MHlNekF6TWpjeE56UXhNRGRhRncweU16QTJNalV4TnpReE1EZGFNQUF3Z2dFaU1BMEdDU3FHU0liMwpEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURuSlEvYTVjSGhBWThGNFI2ZDZ6M1BXdWpBUk9pdy9CdW5oc2hBCm1uQ3J5VVRhVjIwbks1dWhQS3krb200UkRyb1Nac25heVIwVEpwNG54aVgxUmpBdngxSFZFbDNONExsdExnMTEKSzZpL1cxc05rRG1kb3d6Mk8yMURwVG9rL1k2NTQwZkJYNWdKUzNuTDJCU205U1VhbDU5K2NudUdQNnErTVd1Tgo3UndXaFpkVDlkQWgybVdYQ3ZjbDNIVjJTM0l3RlNkc25DU2hkRmV2RUZydWo2c1BzN0s0SjRUbXRXci95ek9NCmQrTUlqakFTcldCYXdmS28ySWZqY1pXa3d3ZWx5MElrUWlaejJsZU9XMHV0SHRQK2hsamRNSHZ3WEcxYTZEa0kKWlFFREtMN2ZXTEFxa0NSWFNnaVpSaHVvTVJBOS84RTFpdFppb1V0bS9XaW5UZzVOQWdNQkFBR2pnWlV3Z1pJdwpEZ1lEVlIwUEFRSC9CQVFEQWdXZ01Bd0dBMVVkRXdFQi93UUNNQUF3Y2dZRFZSMFJBUUgvQkdnd1pvSXFjbUZ0ClpXNHRhSFZpTFhkbFltaHZiMnN0YzJWeWRtbGpaUzV5WVcxbGJpMXplWE4wWlcwdWMzWmpnamh5WVcxbGJpMW8KZFdJdGQyVmlhRzl2YXkxelpYSjJhV05sTG5KaGJXVnVMWE41YzNSbGJTNXpkbU11WTJ4MWMzUmxjaTVzYjJOaApiREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBWExVN2FsWTNMeHU2Ri9xQ09uRWxDaXQraXZXUE92VjBITHNJCjN3SHlST3BVYkVla1JmS0xqNU9EdjA5YTJkeUJxNHQ2NjNKNnBDTjMvVHNEMEl0Q1JFOE1VdW95dzlmcVhEcG4KWlVmazF1ZjlLNi9ubHE5c2wyWGduSE9Lb2JlUzBOK3E0YjZxUllJMzB1czdGSzcxTUwwZGU2ZTl1SU5NTGVPTgovdHN4bnE5VjNZZXVjSlRNdE9TcFRqREhNUUdzMDlQaElROHpoMHZuU3hpSjZlS1MwRVJpMG1JVHc2THduNHo2ClBMQmI0Uk56UWRSM3Voa1U0elBIS05lUVMxakxmb1o1UjNnN1VxZjc0MTdKZHlOU2dSTWZTYWpaa1YyYzgyaXIKc1dOL3N5TXhsSnkxOGdkemUrNHozOVdRT3BZWnRrdFR1REdnZm5BZnVrdFYrSHFQK3c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: ramen-hub-webhook-service
+      namespace: ramen-system
+      path: /validate-ramendr-openshift-io-v1alpha1-drpolicy
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: vdrpolicy.kb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - ramendr.openshift.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - UPDATE
+    resources:
+    - drpolicies
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10

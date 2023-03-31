@@ -1,0 +1,42 @@
+2023-03-27T19:03:49.891Z	INFO	setup	controllers/ramenconfig.go:62	loading Ramen configuration from 	{"file": "/config/ramen_manager_config.yaml"}
+I0327 19:03:50.943625       1 request.go:601] Waited for 1.037229301s due to client-side throttling, not priority and fairness, request: GET:https://10.96.0.1:443/apis/work.open-cluster-management.io/v1?timeout=32s
+2023-03-27T19:03:51.345Z	INFO	controller-runtime.metrics	metrics/listener.go:44	Metrics server is starting to listen	{"addr": "127.0.0.1:9289"}
+2023-03-27T19:03:51.346Z	INFO	controllers/ramenconfig.go:86	loading Ramen config file 	{"name": "/config/ramen_manager_config.yaml"}
+2023-03-27T19:03:51.346Z	INFO	setup	workspace/main.go:223	starting manager
+2023-03-27T19:03:51.346Z	INFO	manager/internal.go:366	Starting server	{"path": "/metrics", "kind": "metrics", "addr": "127.0.0.1:9289"}
+2023-03-27T19:03:51.346Z	INFO	manager/internal.go:366	Starting server	{"kind": "health probe", "addr": "[::]:8081"}
+I0327 19:03:51.347075       1 leaderelection.go:248] attempting to acquire leader lease ramen-system/hub.ramendr.openshift.io...
+I0327 19:04:19.256967       1 leaderelection.go:258] successfully acquired lease ramen-system/hub.ramendr.openshift.io
+2023-03-27T19:04:19.258Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drpolicy", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPolicy", "source": "kind source: *v1alpha1.DRPolicy"}
+2023-03-27T19:04:19.259Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drpolicy", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPolicy", "source": "kind source: *v1.ConfigMap"}
+2023-03-27T19:04:19.260Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drpolicy", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPolicy", "source": "kind source: *v1.Secret"}
+2023-03-27T19:04:19.260Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drpolicy", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPolicy", "source": "kind source: *v1alpha1.DRCluster"}
+2023-03-27T19:04:19.260Z	INFO	controller/controller.go:193	Starting Controller	{"controller": "drpolicy", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPolicy"}
+2023-03-27T19:04:19.260Z	DEBUG	events	recorder/recorder.go:103	ramen-hub-operator-64965b4c7d-x2cjv_1c3fd995-3728-4dcc-bbab-2478d8a9cdb9 became leader	{"type": "Normal", "object": {"kind":"Lease","namespace":"ramen-system","name":"hub.ramendr.openshift.io","uid":"e817e9f3-12f0-4690-9686-e46b574c74f4","apiVersion":"coordination.k8s.io/v1","resourceVersion":"28898"}, "reason": "LeaderElection"}
+2023-03-27T19:04:19.260Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drcluster", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRCluster", "source": "kind source: *v1alpha1.DRCluster"}
+2023-03-27T19:04:19.265Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drcluster", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRCluster", "source": "kind source: *v1.ConfigMap"}
+2023-03-27T19:04:19.265Z	INFO	controller/controller.go:193	Starting Controller	{"controller": "drcluster", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRCluster"}
+2023-03-27T19:04:19.259Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl", "source": "kind source: *v1alpha1.DRPlacementControl"}
+2023-03-27T19:04:19.265Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl", "source": "kind source: *v1.ManifestWork"}
+2023-03-27T19:04:19.266Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl", "source": "kind source: *v1beta1.ManagedClusterView"}
+2023-03-27T19:04:19.266Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl", "source": "kind source: *v1.PlacementRule"}
+2023-03-27T19:04:19.266Z	INFO	controller/controller.go:185	Starting EventSource	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl", "source": "kind source: *v1beta1.Placement"}
+2023-03-27T19:04:19.266Z	INFO	controller/controller.go:193	Starting Controller	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl"}
+2023-03-27T19:04:19.490Z	INFO	controller/controller.go:227	Starting workers	{"controller": "drpolicy", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPolicy", "worker count": 1}
+2023-03-27T19:04:19.490Z	INFO	controller/controller.go:227	Starting workers	{"controller": "drplacementcontrol", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRPlacementControl", "worker count": 50}
+2023-03-27T19:04:19.490Z	INFO	controller/controller.go:227	Starting workers	{"controller": "drcluster", "controllerGroup": "ramendr.openshift.io", "controllerKind": "DRCluster", "worker count": 1}
+2023-03-27T19:04:19.490Z	INFO	controllers.DRPolicy	controllers/drpolicy_controller.go:76	reconcile enter	{"DRPolicy": "dr-policy", "rid": "660a8649-9056-4e5b-8e76-ee5e23fa3ba5"}
+2023-03-27T19:04:19.492Z	INFO	controllers.DRPolicy	controllers/drpolicy_controller.go:105	create/update	{"DRPolicy": "dr-policy", "rid": "660a8649-9056-4e5b-8e76-ee5e23fa3ba5"}
+2023-03-27T19:04:19.492Z	INFO	controllers.DRPolicy	util/conditions.go:31	condition unchanged	{"DRPolicy": "dr-policy", "rid": "660a8649-9056-4e5b-8e76-ee5e23fa3ba5", "type": "Validated", "status": "False", "reason": "DRClusterNotFound", "message": "failed to find DRClusters specified in policy ([c1 c2])", "generation": 1}
+2023-03-27T19:04:19.492Z	ERROR	controllers.DRPolicy	controllers/drpolicy_controller.go:114	Missing dependent resources	{"DRPolicy": "dr-policy", "rid": "660a8649-9056-4e5b-8e76-ee5e23fa3ba5", "error": "failed to find DRClusters specified in policy ([c1 c2])"}
+github.com/ramendr/ramen/controllers.(*DRPolicyReconciler).Reconcile
+	/workspace/controllers/drpolicy_controller.go:114
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Reconcile
+	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:121
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler
+	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:320
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem
+	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:273
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2.2
+	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:234
+2023-03-27T19:04:19.492Z	INFO	controllers.DRPolicy	controllers/drpolicy_controller.go:117	reconcile exit	{"DRPolicy": "dr-policy", "rid": "660a8649-9056-4e5b-8e76-ee5e23fa3ba5"}
