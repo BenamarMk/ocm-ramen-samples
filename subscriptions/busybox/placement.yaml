@@ -1,0 +1,25 @@
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  annotations:
+    cluster.open-cluster-management.io/experimental-scheduling-disable: "true"
+    drplacementcontrol.ramendr.openshift.io/drpc-name: busybox-drpc
+    drplacementcontrol.ramendr.openshift.io/drpc-namespace: busybox-sample
+  labels:
+    app: busybox-sample
+  name: busybox-placement
+spec:
+  clusterSets:
+  - global
+  predicates:
+  - requiredClusterSelector:
+      claimSelector: {}
+      labelSelector:
+        matchExpressions:
+        - key: name
+          operator: In
+          values:
+          - cluster1
+  prioritizerPolicy:
+    mode: Additive
+  spreadPolicy: {}
