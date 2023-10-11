@@ -3,9 +3,9 @@ apiVersion: ramendr.openshift.io/v1alpha1
 kind: DRPlacementControl
 metadata:
   name: busybox-drpc
-  namespace: busybox-sample
+  namespace: benamar-ns
   labels:
-    app: busybox-sample
+    app: benamar-ns
 spec:
   preferredCluster: "cluster1"
   action: "Failover"

@@ -1,4 +1,4 @@
-namespace: busybox-sample
+namespace: benamar-ns
 resources:
 - namespace.yaml
 - placementrule.yaml

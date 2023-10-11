@@ -1,4 +1,4 @@
-namespace: busybox-samples
+namespace: benamar-ns
 resources:
 - channel.yaml
 - namespace.yaml

@@ -4,7 +4,7 @@ kind: DRPlacementControl
 metadata:
   name: busybox-drpc
   labels:
-    app: busybox-sample
+    app: benamar-ns
 spec:
   preferredCluster: "cluster1"
   drPolicyRef:

@@ -4,9 +4,9 @@ metadata:
   annotations:
     cluster.open-cluster-management.io/experimental-scheduling-disable: "true"
     drplacementcontrol.ramendr.openshift.io/drpc-name: busybox-drpc
-    drplacementcontrol.ramendr.openshift.io/drpc-namespace: busybox-sample
+    drplacementcontrol.ramendr.openshift.io/drpc-namespace: benamar-ns
   labels:
-    app: busybox-sample
+    app: benamar-ns
   name: busybox-placement
 spec:
   clusterSets:

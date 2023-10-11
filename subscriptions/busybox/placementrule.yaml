@@ -4,7 +4,7 @@ kind: PlacementRule
 metadata:
   name: busybox-placement
   labels:
-    app: busybox-sample
+    app: benamar-ns
 spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
