@@ -9,7 +9,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteMany
-  storageClassName: ocs-storagecluster-cephfs
+  storageClassName: rook-cephfs
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
