@@ -3,13 +3,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: busybox-cg2-pvc1
-  labels:
-    "ramendr.openshift.io/consistency-group": "cg2"
 spec:
   accessModes:
     - ReadWriteOnce
   # Customize in your overlay.
-  storageClassName: rook-cephfs
+  storageClassName: rook-cephfs1
   resources:
     requests:
       storage: 1Gi
