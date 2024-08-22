@@ -12,4 +12,7 @@ patches:
     patch: |-
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-path
-        value: workloads/deployment/k8s-regional-rbd
+        value: workloads/deployment/odr-regional-rbd
+      - op: replace
+        path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
+        value: cg-for-rbd
