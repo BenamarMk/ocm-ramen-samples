@@ -15,4 +15,4 @@ patches:
         value: workloads/deployment/odr-regional-rbd
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
-        value: cg-for-rbd
+        value: cg-for-rbd-only
