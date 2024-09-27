@@ -8,6 +8,7 @@ spec:
     - ReadWriteOnce
   # Customize in your overlay.
   storageClassName: STORAGE_CLASS_NAME
+  volumeMode: Block
   resources:
     requests:
       storage: 1Gi

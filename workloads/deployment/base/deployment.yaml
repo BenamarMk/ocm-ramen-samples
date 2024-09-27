@@ -22,7 +22,7 @@ spec:
             - -c
             - |
               emit() {
-                  echo "$(date) $1" | tee -a /var/log/ramen.log
+                  echo "$(date) $1" | dd of=/dev/xvda bs=512 seek=$offset count=1 conv=notrunc; offset=$((offset + 1));
                   sync
               }
               trap "emit STOP; exit" TERM
@@ -31,10 +31,10 @@ spec:
                   sleep 10 & wait
                   emit UPDATE
               done
-          volumeMounts:
-            - name: varlog
-              mountPath: /var/log
+          volumeDevices:
+            - name: datelog
+              devicePath: /dev/xvda
       volumes:
-        - name: varlog
+        - name: datelog
           persistentVolumeClaim:
             claimName: busybox-pvc
