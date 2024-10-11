@@ -2,6 +2,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    appname: busybox
+    ramendr.openshift.io/consistency-group: cg-for-lab1
   name: busybox-cg1-pvc1
 spec:
   accessModes:
@@ -15,6 +18,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    appname: busybox
+    ramendr.openshift.io/consistency-group: cg-for-lab1
   name: busybox-cg1-pvc2
 spec:
   accessModes:
