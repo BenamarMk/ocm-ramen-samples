@@ -1,0 +1,24 @@
+---
+resources:
+  - ../../base
+namespace: deployment-cephfs
+commonLabels:
+  app: deployment-cephfs
+patches:
+  # Customize path to application.
+  - target:
+      kind: DRPlacementControl
+      name: drpc
+    patch: |-
+      - op: replace
+        path:  /metadata/annotations/drplacementcontrol.ramendr.openshift.io~1is-cg-enabled
+        value: true
+      - op: replace
+        path: /spec/preferredCluster
+        value: hyper4
+      - op: replace
+        path: /spec/drPolicyRef/name
+        value: hyper3-hyper4-5m
+      - op: replace
+        path: /metadata/name
+        value: busybox-with-cg

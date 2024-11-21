@@ -2,3 +2,12 @@
 resources:
   - channel.yaml
   - namespace.yaml
+patches:
+  # Customize path to application.
+  - target:
+      kind: Channel
+      name: ramen-gitops
+    patch: |-
+      - op: replace
+        path: /spec/pathname
+        value: https://github.com/BenamarMk/ocm-ramen-samples.git
