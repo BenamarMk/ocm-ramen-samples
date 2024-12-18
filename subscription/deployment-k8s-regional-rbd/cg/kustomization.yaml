@@ -1,9 +1,9 @@
 ---
 resources:
   - ../../base
-namespace: deployment-cephfs
+namespace: deployment-rbd
 commonLabels:
-  app: deployment-cephfs
+  app: deployment-rbd
 patches:
   # Customize path to application.
   - target:
@@ -12,7 +12,7 @@ patches:
     patch: |-
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-path
-        value: workloads/deployment/odr-regional-cephfs-rbd/cg
+        value: workloads/deployment/odr-regional-rbd/cg
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
-        value: cg-cephfs
+        value: cg-rbd
