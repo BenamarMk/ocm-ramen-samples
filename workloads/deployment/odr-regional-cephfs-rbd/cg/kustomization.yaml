@@ -1,0 +1,51 @@
+---
+resources:
+  - ../../base/cg/mix
+patches:
+  # Customize for internal cephfs storage.
+  # Cephfs
+  - target:
+      kind: PersistentVolumeClaim
+      name: busybox-cg1-pvc1
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: busybox-cg1-pvc2
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  # RBD
+  - target:
+      kind: PersistentVolumeClaim
+      name: busybox-cg2-pvc1
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-ceph-rbd
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteOnce
+  - target:
+      kind: PersistentVolumeClaim
+      name: busybox-cg2-pvc2
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-ceph-rbd
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteOnce
