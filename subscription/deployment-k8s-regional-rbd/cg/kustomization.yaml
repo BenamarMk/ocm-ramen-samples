@@ -1,0 +1,18 @@
+---
+resources:
+  - ../../base
+namespace: deployment-rbd
+commonLabels:
+  app: deployment-rbd
+patches:
+  # Customize path to application.
+  - target:
+      kind: Subscription
+      name: subscription
+    patch: |-
+      - op: replace
+        path: /metadata/annotations/apps.open-cluster-management.io~1github-path
+        value: workloads/deployment/odr-regional-rbd/cg
+      - op: replace
+        path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
+        value: cg-rbd
