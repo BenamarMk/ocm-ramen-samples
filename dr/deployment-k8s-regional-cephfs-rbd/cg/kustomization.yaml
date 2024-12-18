@@ -18,10 +18,10 @@ patches:
         value: true
       - op: replace
         path: /spec/preferredCluster
-        value: hyper4
+        value: hyper6
       - op: replace
         path: /spec/drPolicyRef/name
-        value: hyper3-hyper4-5m
+        value: hyper6-hyper7-5m
       - op: replace
         path: /metadata/name
         value: busybox-with-mix-cg
