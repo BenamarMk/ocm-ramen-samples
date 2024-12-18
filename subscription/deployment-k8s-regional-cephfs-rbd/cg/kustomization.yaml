@@ -1,9 +1,9 @@
 ---
 resources:
   - ../../base
-namespace: deployment-cephfs
+namespace: deployment-mix
 commonLabels:
-  app: deployment-cephfs
+  app: deployment-mix
 patches:
   # Customize path to application.
   - target:
