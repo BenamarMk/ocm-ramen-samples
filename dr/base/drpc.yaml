@@ -4,9 +4,9 @@ kind: DRPlacementControl
 metadata:
   name: drpc
 spec:
-  preferredCluster: dr1
+  preferredCluster: hyper6
   drPolicyRef:
-    name: dr-policy
+    name: hyper6-hyper7-5m
   placementRef:
     kind: Placement
     name: placement
