@@ -2,5 +2,6 @@
 resources:
   - pvcs.yaml
   - deployment.yaml
+  - deployment-block.yaml
 commonLabels:
   appname: busybox

@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: The RamenDR authors
+# SPDX-License-Identifier: Apache-2.0
+
+# yamllint disable rule:line-length
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    appname: busybox-block
+  name: busybox-block
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: busybox-block
+  template:
+    metadata:
+      labels:
+        appname: busybox-block
+    spec:
+      containers:
+      - image: quay.io/nirsof/busybox:stable
+        imagePullPolicy: IfNotPresent
+        name: busybox-block
+        command:
+        - sh
+        - -c
+        - |
+          trap exit TERM
+          image_size=1073741824 # 1Gi
+          block_size=512
+          blocks=$((image_size/block_size))
+          block_number=0
+          while true; do
+              data=$(date)
+              echo $data
+              for device in "/dev/xvda" "/dev/xvdb"; do
+                  echo $data | dd of=$device bs=$block_size seek=$block_number status=none conv=fsync
+              done
+              sleep 10 &
+              wait
+              block_number=$((block_number+1))
+              if [ $block_number -ge $blocks ]; then
+                  block_number=0
+              fi
+          done
+        volumeDevices:
+        - name: volume1
+          devicePath: /dev/xvda
+        - name: volume2
+          devicePath: /dev/xvdb
+      volumes:
+      - name: volume1
+        persistentVolumeClaim:
+          claimName: busybox-cg3-pvc1
+      - name: volume2
+        persistentVolumeClaim:
+          claimName: busybox-cg3-pvc2

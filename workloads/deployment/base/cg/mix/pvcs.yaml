@@ -50,3 +50,31 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: busybox-cg3-pvc1
+spec:
+  volumeMode: Block
+  accessModes:
+    - ReadWriteOnce
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-ceph-rbd
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: busybox-cg3-pvc2
+spec:
+  volumeMode: Block
+  accessModes:
+    - ReadWriteOnce
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-ceph-rbd
+  resources:
+    requests:
+      storage: 1Gi
