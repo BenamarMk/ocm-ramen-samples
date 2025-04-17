@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: busybox-cg1-pvc1
+  name: cg-pvc0
 spec:
   accessModes:
     - ReadWriteMany
@@ -15,7 +15,111 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: busybox-cg1-pvc2
+  name: cg-pvc1
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc2
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc3
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc4
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc5
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc6
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc7
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc8
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Customize in your overlay.
+  storageClassName: ocs-storagecluster-cephfs
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cg-pvc9
 spec:
   accessModes:
     - ReadWriteMany

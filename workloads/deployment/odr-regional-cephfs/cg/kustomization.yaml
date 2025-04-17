@@ -5,7 +5,7 @@ patches:
   # Customize for internal cephfs storage.
   - target:
       kind: PersistentVolumeClaim
-      name: busybox-cg1-pvc1
+      name: cg-pvc0
     patch: |-
       - op: replace
         path: /spec/storageClassName
@@ -16,7 +16,95 @@ patches:
           - ReadWriteMany
   - target:
       kind: PersistentVolumeClaim
-      name: busybox-cg1-pvc2
+      name: cg-pvc1
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc2
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc3
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc4
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc5
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc6
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc7
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc8
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: ocs-storagecluster-cephfs
+      - op: replace
+        path: /spec/accessModes
+        value:
+          - ReadWriteMany
+  - target:
+      kind: PersistentVolumeClaim
+      name: cg-pvc9
     patch: |-
       - op: replace
         path: /spec/storageClassName

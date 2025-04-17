@@ -1,9 +1,9 @@
 ---
 resources:
   - ../../base
-namespace: deployment-cg-cephfs
+namespace: deploy-cg-2pods-10pvcs
 commonLabels:
-  app: deployment-cg-cephfs
+  app: deploy-cg-2pods-10pvcs
 patches:
   # Customize path to application.
   - target:
@@ -15,4 +15,4 @@ patches:
         value: workloads/deployment/odr-regional-cephfs/cg
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
-        value: cg-cephfs
+        value: cg-cephfs-2pods-10pvcs

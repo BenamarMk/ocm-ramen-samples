@@ -1,0 +1,120 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-pod-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: busybox
+  template:
+    metadata:
+      labels:
+        appname: busybox
+    spec:
+      containers:
+        - name: logger
+          image: quay.io/nirsof/busybox:stable
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              emit() {
+                  echo "$(date) $1" | tee -a /var/log0/ramen.log /var/log1/ramen.log /var/log2/ramen.log /var/log3/ramen.log /var/log4/ramen.log
+                  sync
+              }
+              trap "emit STOP; exit" TERM
+              emit START
+              while true; do
+                  sleep 1 & wait
+                  emit UPDATE
+              done
+          volumeMounts:
+            - name: varlog0
+              mountPath: /var/log0
+            - name: varlog1
+              mountPath: /var/log1
+            - name: varlog2
+              mountPath: /var/log2
+            - name: varlog3
+              mountPath: /var/log3
+            - name: varlog4
+              mountPath: /var/log4
+      volumes:
+        - name: varlog0
+          persistentVolumeClaim:
+            claimName: cg-pvc0
+        - name: varlog1
+          persistentVolumeClaim:
+            claimName: cg-pvc1
+        - name: varlog2
+          persistentVolumeClaim:
+            claimName: cg-pvc2
+        - name: varlog3
+          persistentVolumeClaim:
+            claimName: cg-pvc3
+        - name: varlog4
+          persistentVolumeClaim:
+            claimName: cg-pvc4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-pod-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: busybox
+  template:
+    metadata:
+      labels:
+        appname: busybox
+    spec:
+      containers:
+        - name: logger
+          image: quay.io/nirsof/busybox:stable
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              emit() {
+                  echo "$(date) $1" | tee -a /var/log5/ramen.log /var/log6/ramen.log /var/log7/ramen.log /var/log8/ramen.log /var/log9/ramen.log
+                  sync
+              }
+              trap "emit STOP; exit" TERM
+              emit START
+              while true; do
+                  sleep 1 & wait
+                  emit UPDATE
+              done
+          volumeMounts:
+            - name: varlog5
+              mountPath: /var/log5
+            - name: varlog6
+              mountPath: /var/log6
+            - name: varlog7
+              mountPath: /var/log7
+            - name: varlog8
+              mountPath: /var/log8
+            - name: varlog9
+              mountPath: /var/log9
+      volumes:
+        - name: varlog5
+          persistentVolumeClaim:
+            claimName: cg-pvc5
+        - name: varlog6
+          persistentVolumeClaim:
+            claimName: cg-pvc6
+        - name: varlog7
+          persistentVolumeClaim:
+            claimName: cg-pvc7
+        - name: varlog8
+          persistentVolumeClaim:
+            claimName: cg-pvc8
+        - name: varlog9
+          persistentVolumeClaim:
+            claimName: cg-pvc9
