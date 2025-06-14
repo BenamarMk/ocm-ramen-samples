@@ -9,7 +9,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
+        value: rook-cephfs-fs1
       - op: replace
         path: /spec/accessModes
         value:
@@ -20,7 +20,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
+        value: rook-cephfs-fs1
       - op: replace
         path: /spec/accessModes
         value:
@@ -31,7 +31,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
+        value: rook-cephfs-fs1
       - op: replace
         path: /spec/accessModes
         value:
@@ -42,7 +42,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
+        value: rook-cephfs-fs1
       - op: replace
         path: /spec/accessModes
         value:
@@ -53,7 +53,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
+        value: rook-cephfs-fs1
       - op: replace
         path: /spec/accessModes
         value:
@@ -64,7 +64,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
+        value: rook-cephfs-fs1
       - op: replace
         path: /spec/accessModes
         value:
