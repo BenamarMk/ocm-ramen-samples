@@ -34,6 +34,11 @@ spec:
           volumeMounts:
             - name: varlog
               mountPath: /var/log
+      securityContext:
+        fsGroupChangePolicy: OnRootMismatch
+        runAsGroup: 0
+        seLinuxOptions:
+          type: spc_t
       volumes:
         - name: varlog
           persistentVolumeClaim:
