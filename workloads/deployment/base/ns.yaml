@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   annotations:
     volsync.backube/privileged-movers: "true"
-  name: regionaldr-testv2
+  name: regionaldr-testv3

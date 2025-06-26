@@ -23,7 +23,7 @@ spec:
         seLinuxOptions:
           type: spc_t
         runAsGroup: 0
-        fsGroupChangePolicy: Always
+        fsGroupChangePolicy: OnRootMismatch
       containers:
         - resources:
             limits:
