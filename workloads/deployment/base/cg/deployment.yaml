@@ -28,7 +28,7 @@ spec:
               trap "emit STOP; exit" TERM
               emit START
               while true; do
-                  sleep 10 & wait
+                  sleep .5 & wait
                   emit UPDATE
               done
           volumeMounts:
