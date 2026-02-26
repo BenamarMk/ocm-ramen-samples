@@ -9,4 +9,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: rook-cephfs-fs1
+        value: rook-ceph-block
