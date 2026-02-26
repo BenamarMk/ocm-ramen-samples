@@ -8,4 +8,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: ocs-storagecluster-ceph-rbd
+        value: rook-cephfs-fs1
