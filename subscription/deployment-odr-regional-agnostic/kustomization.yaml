@@ -15,4 +15,4 @@ patches:
         value: workloads/deployment/odr-regional-agnostic
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
-        value: use-agnostic
+        value: use-agnostic-global
