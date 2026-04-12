@@ -8,4 +8,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/storageClassName
-        value: agnostic-dr-storage-class
+        value: standard
