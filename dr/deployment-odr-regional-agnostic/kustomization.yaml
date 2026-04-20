@@ -1,6 +1,6 @@
 ---
 resources:
   - ../base
-namespace: deployment-agnostic
+namespace: deployment-agnostic-2
 commonLabels:
-  app: deployment-agnostic
+  app: deployment-agnostic-2
