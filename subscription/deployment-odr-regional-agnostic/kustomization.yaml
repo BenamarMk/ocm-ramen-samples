@@ -1,9 +1,9 @@
 ---
 resources:
   - ../base
-namespace: deployment-agnostic
+namespace: deployment-agnostic-2
 commonLabels:
-  app: deployment-agnostic
+  app: deployment-agnostic-2
 patches:
   # Customize path to application.
   - target:
@@ -15,4 +15,4 @@ patches:
         value: workloads/deployment/odr-regional-agnostic
       - op: replace
         path: /metadata/annotations/apps.open-cluster-management.io~1github-branch
-        value: use-agnostic-global
+        value: use-agnostic-global-with-multi-wl
